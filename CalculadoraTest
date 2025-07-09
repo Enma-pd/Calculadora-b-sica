@@ -1,0 +1,71 @@
+package es.cic.curso25;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+
+import org.junit.jupiter.api.Test;
+
+public class CalculadoraTest {
+    @Test
+    public void testSumar() {
+        // Preparo
+        Calculadora cut = new Calculadora();
+
+
+        // Ejecuto
+        cut.sumar(5.6);
+
+        // Verifico
+        double valorActual = cut.getTotal();
+        assertEquals(5.6, valorActual, 0.000001);
+
+
+        cut.sumar(3.4);
+        valorActual = cut.getTotal();
+
+        assertEquals(9, valorActual, 0.000001);
+    }
+    @Test
+    public void testRestar(){
+        //Preparar
+        Calculadora rut = new Calculadora();
+
+        //Ejecutar
+        rut.restar(6);
+
+        //Verificar
+        double resultadoResta = rut.getTotal();
+        assertEquals(-6, resultadoResta, 0.000001);
+    }
+     @Test
+    public void testMultiplicar(){
+        //Preparar
+        Calculadora mut = new Calculadora();
+
+        //Ejecutar
+        mut.multiplicar(6);
+
+        //Verificar
+        double resultadoMultiplicacion = mut.getTotal2();
+        assertEquals(6, resultadoMultiplicacion, 0.000001);
+    }
+     @Test
+    public void testDividir(){
+        //Preparar
+        Calculadora dut = new Calculadora();
+
+        //Ejecutar
+        dut.dividir(6);
+
+        //Verificar
+        double resultadoDivision = dut.getTotal2();
+        assertEquals(0.166666666666, resultadoDivision, 0.000001);
+
+        //En caso de valos == 0
+        dut.dividir(0);
+
+        //Verificación
+        double resultadoDivision2 = dut.getTotal2();
+        assertTrue(Double.isNaN(resultadoDivision2));
