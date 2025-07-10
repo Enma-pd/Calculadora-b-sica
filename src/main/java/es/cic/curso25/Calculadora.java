@@ -1,6 +1,6 @@
 package es.cic.curso25;
 
-public class Calculadora extends Object {
+public class Calculadora {
     private double total= 0.0d;
 
     public double getTotal() {
@@ -11,18 +11,21 @@ public class Calculadora extends Object {
         total = total + valor;
     }
     public void restar(double valor){
-        total-= valor
+        total-= valor;
     }
 
-    public void restar(double valor){
-        total-= valor;
+    public void multiplicar(double valor){
+        total*= valor;
     }
      public void dividir ( double valor){
         if (valor == 0){
-            throw new ArithmeticException(String "División por cero");
+            throw new ArithmeticException( "División por cero");
         }
         else{
             total/= valor;
         }
-     }
+    }
+    public void limpiar(){
+        total = 0;
+    }
 }
