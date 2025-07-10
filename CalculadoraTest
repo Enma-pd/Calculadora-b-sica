@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-
 import org.junit.jupiter.api.Test;
 
 public class CalculadoraTest {
@@ -43,6 +42,10 @@ public class CalculadoraTest {
     public void testMultiplicar(){
         //Preparar
         Calculadora mut = new Calculadora();
+        
+        //en vez de hacerlo como lo has hecho, podemos empezar sumando
+        //cut.sumar(valor:4.2)
+        //el test tambien comprueba la suma
 
         //Ejecutar
         mut.multiplicar(6);
