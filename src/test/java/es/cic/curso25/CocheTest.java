@@ -8,12 +8,13 @@ import org.junit.jupiter.api.BeforeEach;
 
 public class CocheTest{
 
-    private Coche cut;
+    public Coche cut;
 
     @BeforeEach
     public void  setUp(){
-        Coche cut = new Coche();
+       cut = new Coche();
     }
+
     @Test
 
     void testAcelerar(){
@@ -25,7 +26,7 @@ public class CocheTest{
     void testFrenar(){
         cut.acelerar(34);
         int velocidadFinal = cut.frenar(23);
-        assertEquals(27, velocidadFinal);  
+        assertEquals(11, velocidadFinal);  
     }
     @Test
     void testGetConsumo(){
