@@ -2,20 +2,26 @@ package es.cic.curso25;
 
 import static java.lang.Math.round;
 
-public class Coche extends Vehiculo{
+public class Vehiculo {
 
+    public static final double  CONSUMO_INSTANTANEO = 4.3;
+    protected Calculadora calculadora ;
+    protected int velocidad;
     
-    public static final double CONSUMO_INSTANTANEO = 4.3;
-    private Calculadora calculadora = new Calculadora();
-    private int velocidad = 0;
-    
-    public Coche(){
-        this.calculadora = new Calculadora();
+    public Vehiculo(){
+        Calculadora calculadora = new Calculadora();
     }
 
-    
+    public int acelerar(int incrementoVelocidad){
+        this.calculadora.limpiar();
+        this.calculadora.sumar(this.velocidad);
+        this.calculadora.sumar(incrementoVelocidad);
 
-    public int getVelocidad(){
+        this.velocidad = (int) round(calculadora.getTotal());
+        
+        return this.velocidad;   
+    }
+     public int getVelocidad(){
         return velocidad;
     }
      public double getConsumo(){
@@ -25,15 +31,6 @@ public class Coche extends Vehiculo{
         this.calculadora.multiplicar(CONSUMO_INSTANTANEO);
 
         return calculadora.getTotal();
-    }
-    public int acelerar(int incrementoVelocidad){
-        this.calculadora.limpiar();
-        this.calculadora.sumar(this.velocidad);
-        this.calculadora.sumar(incrementoVelocidad);
-
-        this.velocidad = (int) round(calculadora.getTotal());
-        
-        return this.velocidad;   
     }
      public int frenar(int decrementoVelocidad){
         this.calculadora.limpiar();
@@ -46,6 +43,4 @@ public class Coche extends Vehiculo{
         return this.velocidad;
         
     }
-
 }
-
